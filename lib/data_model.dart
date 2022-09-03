@@ -8,3 +8,9 @@ class CakeList {
   dynamic image;
   CakeList({required this.title, this.image});
 }
+
+class CategoryMainPage {
+  String title;
+  dynamic image;
+  CategoryMainPage({required this.title, this.image});
+}

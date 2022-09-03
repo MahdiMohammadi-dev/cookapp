@@ -1,5 +1,6 @@
 import 'package:cookapp/cooking_page.dart';
 import 'package:cookapp/main_screen.dart';
+import 'package:cookapp/more_detail_type_cake.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const CookApp());

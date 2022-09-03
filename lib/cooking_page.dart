@@ -1,6 +1,8 @@
 import 'package:cookapp/colors.dart';
 import 'package:cookapp/fake_data.dart';
 import 'package:cookapp/gen/assets.gen.dart';
+import 'package:cookapp/main_screen.dart';
+import 'package:cookapp/more_detail_type_cake.dart';
 import 'package:flutter/material.dart';
 
 class CookingPage extends StatefulWidget {
@@ -151,133 +153,140 @@ class _CookingPageState extends State<CookingPage> {
                 ],
               ),
               // This Section is For Type Of Menu
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: size.height / 3,
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: myCake.length,
-                    itemBuilder: ((context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          width: size.width / 1.5,
-                          height: 120,
-                          decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 252, 252, 252),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  width: 80,
-                                  height: 80,
-                                  clipBehavior: Clip.hardEdge,
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                    Radius.circular(20),
-                                  )),
-                                  child: myCake[index].image,
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const MoreDetailOfTypeCake()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: size.height / 3,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: myCake.length,
+                      itemBuilder: ((context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: size.width / 1.5,
+                            height: 120,
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 252, 252, 252),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 80,
+                                    height: 80,
+                                    clipBehavior: Clip.hardEdge,
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                      Radius.circular(20),
+                                    )),
+                                    child: myCake[index].image,
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 10),
-                                      child: Text(
-                                        myCake[index].title,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.w900,
-                                          color: AppColor.textgraycolor,
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          myCake[index].title,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.w900,
+                                            color: AppColor.textgraycolor,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          bottom: 30, left: 10),
-                                      child: Row(
-                                        children: [
-                                          InkWell(
-                                            onTap: () {
-                                              setState(() {
-                                                bells = index;
-                                              });
-                                            },
-                                            child: bells == index
-                                                ? Image(
-                                                    image: AssetImage(Assets
-                                                        .icons.bellFill.path),
-                                                    color:
-                                                        AppColor.likebellscolor,
-                                                    height: 30,
-                                                  )
-                                                : Image(
-                                                    image: AssetImage(Assets
-                                                        .icons.bellFill.path),
-                                                    height: 30,
-                                                  ),
-                                          ),
-                                          const SizedBox(
-                                            width: 15,
-                                          ),
-                                          InkWell(
-                                              onTap: (() {
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            bottom: 30, left: 10),
+                                        child: Row(
+                                          children: [
+                                            InkWell(
+                                              onTap: () {
                                                 setState(() {
-                                                  star = index;
+                                                  bells = index;
                                                 });
-                                              }),
-                                              child: star == index
+                                              },
+                                              child: bells == index
                                                   ? Image(
                                                       image: AssetImage(Assets
-                                                          .icons
-                                                          .starGrayFill
-                                                          .path),
+                                                          .icons.bellFill.path),
                                                       color: AppColor
                                                           .likebellscolor,
                                                       height: 30,
                                                     )
                                                   : Image(
                                                       image: AssetImage(Assets
-                                                          .icons
-                                                          .starGrayFill
-                                                          .path),
+                                                          .icons.bellFill.path),
                                                       height: 30,
-                                                    )),
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                                                    ),
+                                            ),
+                                            const SizedBox(
+                                              width: 15,
+                                            ),
+                                            InkWell(
+                                                onTap: (() {
+                                                  setState(() {
+                                                    star = index;
+                                                  });
+                                                }),
+                                                child: star == index
+                                                    ? Image(
+                                                        image: AssetImage(Assets
+                                                            .icons
+                                                            .starGrayFill
+                                                            .path),
+                                                        color: AppColor
+                                                            .likebellscolor,
+                                                        height: 30,
+                                                      )
+                                                    : Image(
+                                                        image: AssetImage(Assets
+                                                            .icons
+                                                            .starGrayFill
+                                                            .path),
+                                                        height: 30,
+                                                      )),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                  width: 40,
-                                  height: 40,
-                                  clipBehavior: Clip.hardEdge,
-                                  decoration: const BoxDecoration(
-                                      color: AppColor.likebellscolor,
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(500))),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Image(
-                                      image: AssetImage(
-                                          Assets.icons.opendoorFill.path),
-                                      height: 3,
-                                    ),
-                                  )),
-                            ],
+                                Container(
+                                    width: 40,
+                                    height: 40,
+                                    clipBehavior: Clip.hardEdge,
+                                    decoration: const BoxDecoration(
+                                        color: AppColor.likebellscolor,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(500))),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Image(
+                                        image: AssetImage(
+                                            Assets.icons.opendoorFill.path),
+                                        height: 3,
+                                      ),
+                                    )),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }),
+                        );
+                      }),
+                    ),
                   ),
                 ),
               )
@@ -318,10 +327,16 @@ class AppBarSearchBox extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(
-                        Icons.keyboard_arrow_left_rounded,
-                        color: Colors.white,
-                        size: 50,
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                              builder: ((context) => const MainScreen())));
+                        },
+                        child: const Icon(
+                          Icons.keyboard_arrow_left_rounded,
+                          color: Colors.white,
+                          size: 50,
+                        ),
                       ),
                       const Text(
                         "Cooking",

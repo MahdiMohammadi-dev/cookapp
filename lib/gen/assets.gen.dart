@@ -32,6 +32,9 @@ class $AssetsIconsGen {
   AssetGenImage get bookmark =>
       const AssetGenImage('assets/icons/bookmark.png');
 
+  /// File path: assets/icons/burger.png
+  AssetGenImage get burger => const AssetGenImage('assets/icons/burger.png');
+
   /// File path: assets/icons/description.png
   AssetGenImage get description =>
       const AssetGenImage('assets/icons/description.png');
@@ -50,6 +53,10 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/idea.png
   AssetGenImage get idea => const AssetGenImage('assets/icons/idea.png');
+
+  /// File path: assets/icons/mainappbaricon.png
+  AssetGenImage get mainappbaricon =>
+      const AssetGenImage('assets/icons/mainappbaricon.png');
 
   /// File path: assets/icons/monitor.png
   AssetGenImage get monitor => const AssetGenImage('assets/icons/monitor.png');
